@@ -3,7 +3,7 @@
 
 try
  {
-    $pdo = new PDO("mysql:host=172.28.0.3; dbname=test", "root","zxx@123456");
+    $pdo = new PDO("mysql:host=172.23.0.3; dbname=test", "root","123456");
     echo 'success';
  }
 
@@ -18,3 +18,4 @@ phpinfo();
 
 
 ?>
+
