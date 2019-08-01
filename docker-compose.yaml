@@ -4,7 +4,7 @@ services:
  nginx:
   image: nginx
   ports:
-  - 8080:80 #Open port 8080 changed is ok
+  - ${nginx_port}:80 #Open port 8080 changed is ok
   depends_on:
   - php-mysql #Sync php-mysql service name
   volumes:
@@ -30,10 +30,10 @@ services:
    - webnet
 #define mysql
  mysql:
-  image: mysql:5.7 #mysql Version changed is ok
+  image: mysql:${mysql_version} #mysql Version changed is ok
   restart: always
   environment:
-  - MYSQL_ROOT_PASSWORD:123456 #mysql password changed is ok
+  - MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD_VALUE} #mysql password changed is ok
   networks:
   - webnet
   ports:
@@ -43,4 +43,4 @@ services:
   - ./mysql/conf.d:/etc/mysql/conf.d
   - ./mysql/data:/var/lib/mysql
 networks:
- webnet: 
+ webnet:
